@@ -1,3 +1,4 @@
+<!-- Victor chaged paths to the images  src="../assets/img/profile-pic.jpg" -->
 <template>
   <div class="home">
     <div class="container">
