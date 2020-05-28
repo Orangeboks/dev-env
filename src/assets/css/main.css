@@ -5,6 +5,10 @@
     outline: none!important;
 } */
 
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
 /* --------------------------------------------------------------------------- Navigation */
 .navigation-container a {
     width: 80px;
