@@ -1,15 +1,7 @@
-/* .bootstrap-select .btn:focus {
-    outline: none !important;
-}
-.bootstrap-select .dropdown-toggle:focus {
-    outline: none!important;
-} */
-
-* {
-    font-family: 'Roboto', sans-serif;
-}
-
 /* --------------------------------------------------------------------------- Navigation */
+.navbar-brand {
+    margin: 0;
+}
 .navigation-container a {
     width: 80px;
 }
@@ -24,47 +16,19 @@
 }
 
 /*------------------------------------------------------- Dropdown */
-.dropdown-toggle::after {
-    display: none;
-}
-
-.dropdown {
-    margin-inline-end: auto;
-    margin-right: 0;
-    float: right;
-}
-.dropdown-btn span {
-    /* -webkit-text-stroke: 1px white; */
-    margin-left: 5px;
-    font-size: 18px;
-}
-.dropdown-btn {
-    background-color: transparent;
-    color: #3b3c3d;
-    font-weight: 600;
-    font-size: 20px;
-    border: none;
-    border-radius: 0;
-}
-
-.dropdown-btn:hover {
-    /* background-color:   #c8cbcc;
-    color: #f9fafb; */
-    background-color: transparent;
-    box-shadow: none;
-    color: #3b3c3d;
-
-}
-
-/*------------------------------------------------------- Dropdown #2 */
 .dropdown-custom button span {
     margin-left: 5px;
     font-size: 15px;
 }
 
 .dropdown-custom button {
-    margin-left: 5px;
-    font-size: 18px;
+    margin-left: 0;
+    font-size: 20xpx;
+    padding-left: 0;
+}
+
+.dropdown-custom .dropdown-menu{
+    border-radius: 0;
 }
 
 .dropdown-custom .dropdown-menu li {
@@ -84,17 +48,8 @@ padding: 4px 24px 4px 24px;
 
 .dropdown-custom .dropdown-menu .dropdown-submenu:hover  {
     background-color: rgba(224, 224, 224, 0.69);
-    text-decoration: none!important;
+    /* text-decoration: none!important; */
 }
-
-
-
-/* .show>.btn-secondary.dropdown-toggle {
-    background-color: transparent;
-    box-shadow: none;
-    border:none;
-    color: #3b3c3d;
-} */
 
 .search-input {
     border-radius: 0;
@@ -122,34 +77,70 @@ padding: 4px 24px 4px 24px;
 
 .link-blog {
     color:  #3b3c3d;
-    margin-inline-end: auto;
+    /* margin-inline-end: auto; */
     
 }
 #link-navs {
         margin-right: 0;
         width: auto;
-        margin-left: 400px;
+        /* margin-left: 400px; */
+        margin-left: 40%;
         
 } 
 
 .nav-icons {
-    padding: 10px;
+    padding: 0;
+    margin-top: 10px;
 }
-.nav-icons a {
-    padding: 10px 10px 10px 10px;
-    margin-right: 20px;
+.nav-icons .icon {
+    padding: 0 10px 0 10px;
+    margin-right: 10px;
+    display: inline-block;
+}
+
+#not-icon {
+    width: auto;
 }
 .nav-icons a img {
-    width: 22px;
+    width: 15px;
+    margin-top: 0px;
 }
+/* -----------------------------Add Video Dropdown */
+
+.nav-icons a #create-icon {
+    width: 19px;
+}
+.dropdown-toggle::after {
+    display: none;
+}
+
+.create-dropdown .dropdown-menu {
+    width: 80px;
+}
+
+.create-dropdown .dropdown-menu .dropdown-submenu {
+    padding: 0 0 0 10px;
+}
+
+/* .create-dropdown .dropdown-menu .dropdown-submenu li {
+    width: 5px;
+} */
+
+
+.create-dropdown .dropdown-menu .dropdown-submenu a{
+    font-size: 14px;
+}
+
+.create-dropdown .dropdown-menu .dropdown-submenu {
+    width: auto;
+}
+
+/* -------------------------- / Add Video Dropdown */
 
 .center-cropped {
     width: 35px;
     height: 35px;
-    /* background-position: center center;
-    background-repeat: no-repeat; */
     float: right;
-    /* border-radius: 50%; */
   }
 
   /* Set the image to fill its parent and make transparent */
@@ -188,7 +179,20 @@ padding: 4px 24px 4px 24px;
 
 .benefits .benefit {
     width: 100%;
-    /* padding: 0; */
+    padding: 0 18px 0 18px;
+    text-align: center;
+}
+
+.benefits .benefit h1 {
+    font-size: 20px;
+}
+
+
+.benefits .benefit img{
+    width: 80px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto 
 }
 
 .test {
@@ -202,7 +206,6 @@ padding: 4px 24px 4px 24px;
     margin-top: 50px;
     margin-bottom: 50px;
 }
-
 .latest-videos .card {
     /* margin: 0 20px  0  20px ; */
 }
@@ -218,7 +221,7 @@ padding: 4px 24px 4px 24px;
 
 /*---------------------------------------------------------------------------- Become a teacher */
 .become-teacher {
-    background-image: url("../img/jumbo-picture.png");
+    background-image: url("../img/jumbo-picture.png") ;
     background-size: cover;
     height: 250px;
     color: white;
@@ -243,6 +246,7 @@ padding: 4px 24px 4px 24px;
     border: none;
 }
 
+/*---------------------------------------------------------------------------- Testimonials */
 .testimonials-grid .card {
     text-align:center;
     border: none;
@@ -263,3 +267,254 @@ padding: 4px 24px 4px 24px;
 .testimonials-grid .card .card-body .card-text {
     font-style: italic;
 }
+
+/*---------------------------------------------------------------------------- Footer */
+.custom-footer {
+    background-color: #3b3c3d;
+    color: whitesmoke;
+}
+
+.custom-footer li a{
+    color: whitesmoke;
+}
+
+/*----------------------------------------------------------------------------------------------- Lessons-All page */
+.videos-grid .card {
+    /* width: 900px; */
+}
+
+.videos-grid .card-body {
+    /* width: 900px; */
+    padding: 10px;
+}
+
+.video-holder img {
+    width: 180px;
+    height: 100%;
+}
+
+.videos-grid .card-title {
+    margin-bottom: 2px;
+}
+
+/* .video-details {
+    margin-bottom: 2px;
+    font-size: 14px;
+} */
+
+#video-details {
+    margin-bottom: 2px;
+    font-size: 14px;
+    /* color: #212529; */
+}
+
+.videos-grid .card-text i {
+    margin-left: 3px;
+    font-size: 10px;
+}
+
+/* ----- This is how to make the image center cropped :) */
+/* .video-holder {
+    width: 180px;
+    height: 150px;
+
+    position: relative;
+    overflow: hidden;
+}
+.video-holder img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 100%;
+    width: auto;
+    -webkit-transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+            transform: translate(-50%,-50%);
+}
+
+.video-holder img.portrait {
+    width: 100%;
+    height: auto;
+  } */
+
+/* ----- /This is how to make the image center cropped :) */
+
+/* ------------------------------------ Courses Nav */
+
+ a {
+    text-decoration: none;
+    color: #3b3c3d;
+
+}
+
+a:hover {
+    text-decoration: none;
+    color: #3b3c3d;
+}
+
+.courses-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    /* background-color: #333; */
+    background-color: #F8F8F8;
+}
+
+.courses-nav ul li {
+    float: left;
+}
+
+.courses-nav li a {
+    display: block;
+    /* color: white; */
+    color: #3b3c3d;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.courses-nav li a:hover:not(.current-program) {
+    text-decoration: underline;
+}
+  
+.courses-nav .current-program {
+    /* background-color: #4CAF50; */
+    /* background-color: #36b9bc; */
+    background-color: #E0E0E0;
+    color: #3b3c3d;
+    font-weight: bold;
+}
+
+/* .courses-nav .active {
+    background-color: #E0E0E0;
+    font-size: 14px;
+} */
+
+#page-title {
+    font-size: 25px;
+    margin: 25px 0 25px 0 ;
+}
+
+
+/* --------------------------------------------------------------------------------- Video Page - View */
+
+/* ----------------------------------------------------------------------- Video and Description*/
+.content-video  {
+    margin-top: 20px;
+}
+.content-video .video video {
+    width: 100%;
+}
+
+.content-video .video .video-header h1 {
+    font-size: 25px;
+    margin-bottom: 5px;
+}
+
+.content-video .video .video-header .details {
+    font-size: 13px;
+}
+
+.content-video .video .video-header .description {
+    font-size: 14px;
+}
+
+/* ----------------------------------------------------------------------- Autoplay list*/
+
+/* ---------------------------------------------------------------- Video Card */
+.autoplay .video-card {
+    border: none;
+}
+
+.autoplay .video-card .card-body  {
+    padding: 0 0 0 5px;
+    width: 170px;
+}
+.autoplay .video-card .card-body .card-title {
+    font-size: 17px;
+    margin-bottom: 8px;
+}
+
+.autoplay .video-card .card-body .card-text {
+    font-size: 13px;
+    margin-bottom: 0;
+}
+
+.autoplay .video-card .card-img {
+    border-radius: 0;
+}
+
+/* ----------------------------------------------------------------------- Comments Section*/
+/*-------------------- Comment Section (3.2) ---------------*/
+.commentSection  {
+    margin-top: 40px;
+}
+
+.commentSection h3 {
+  font-size: 15px;
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.write-comment {
+  height: 70px;
+}
+
+.write-comment img{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  float: left;
+  margin-top: 7px;
+}
+
+.write-comment input{
+  width: 600px;
+  height: 40px;
+  border-top: none;
+  border-bottom: 1px solid #00000029;
+  border-left: none;
+  border-right: none;
+  outline: none;
+  padding: 0 3px 0 3px;
+  margin-left:8px;
+}
+
+.commentField .comment {
+    margin-bottom: 30px;
+}
+.commentField img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  float: left;
+  margin-top: 0;
+  margin-right: 10px;
+}
+.commentField h3 {
+  font-size: 15px;
+}
+.commentField .commentBody {
+  font-size: 15px;
+  margin-left: 50px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.commentDate {
+  margin: 0 0 10px 50px;
+  font-weight: 300;
+  font-size: 14px;
+}
+
+.comment .delete-icon {
+    color: #5B616A;
+    float: right;
+}
+
+.comment .delete-icon:hover{
+    cursor: pointer;
+    color: #333333;
+} 
