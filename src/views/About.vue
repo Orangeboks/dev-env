@@ -1,82 +1,72 @@
 <template>
-  <div class="about">
-<!-- Body -->
-    <div class="videos-view container">
-
-      <!-- courses-nav -->
-      <div class="courses-nav">
+    <div class="home">
+        <!-- Body -->
+<div class="container">
+    <!-- courses-nav -->
+    <div class="courses-nav">
         <ul class="">
-          <li><a class="current-program " href="#home">Web Development</a></li>
-          <li> <a href="#">User Experience</a> </li>
-          <li> <a href="#">Development environments</a> </li>
-          <li><a href="#home">Web programming</a></li>
-          <li><a href="#">Web - Data</a></li>
-          <li><a href="#">Web - Frontend</a></li>
+            <li><a class="current-program " href="#home">Web Development</a></li>
+            <li> <a href="#">User Experience</a> </li>
+            <li> <a href="#">Development environments</a> </li>
+            <li><a href="#home">Web programming</a></li>
+            <li><a href="#">Web - Data</a></li>
+            <li><a href="#">Web - Frontend</a></li>
+            <!-- <li><a class="active" href="#home">Web programming</a></li> -->
         </ul>
-      </div>
+    </div>
+    <!-- / courses-nav  -->
 
-      <h1 id="page-title">Development Environments</h1>
-
-      <!-- Videos grid -->
-      <div class="videos-grid">
-        <a class="video-link" href="#">
-          <div class="card mb-3" style="max-width: 700px;">
-            <div class="row no-gutters">
-              <div class="video-holder col-md-4">
-                <img src="img/test-pic.png" class="portrait card-img" alt="...">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">Video title</h5>
-                  <p class="video-details card-text"><small class="text-muted" id="video-details">Victor Ky | Web Development | Fronend </small></p>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <p class="card-text"><small class="text-muted">120 views | 4 days ago | 40:10 <i class="fa fa-forward" aria-hidden="true"></i>
-                  </small></p>
+    <!--  content  -->
+    <div class="content-video">
+            <div class="row" v-for = "video in videos" :key="video" style="margin-top:10px">
+                <div class="col-8">
+                  <div class="video">
+                        <video width="400" controls>
+                            <source :src="video.video_link">
+                            Your browser does not support HTML video.
+                        </video>
+                        <!-- / video  -->
+                  </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        </a>
 
-        <a class="video-link" href="#">
-          <div class="card mb-3" style="max-width: 700px;">
-            <div class="row no-gutters">
-              <div class="video-holder col-md-4">
-                <img src="img/test-pic.png" class="portrait card-img" alt="...">
               </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">Video title</h5>
-                  <p class="video-details card-text"><small class="text-muted" id="video-details">Victor Ky | Web Development | Fronend </small></p>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <p class="card-text"><small class="text-muted">120 views | 4 days ago | 40:10 <i class="fa fa-forward" aria-hidden="true"></i>
-                  </small></p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </a>
-
-        <a class="video-link" href="#">
-          <div class="card mb-3" style="max-width: 700px;">
-            <div class="row no-gutters">
-              <div class="video-holder col-md-4">
-                <img src="img/test-pic.png" class="portrait card-img" alt="...">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">Video title</h5>
-                  <p class="video-details card-text"><small class="text-muted" id="video-details">Victor Ky | Web Development | Fronend </small></p>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <p class="card-text"><small class="text-muted">120 views | 4 days ago | 40:10 <i class="fa fa-forward" aria-hidden="true"></i>
-                  </small></p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </a>
-      </div>
+        </div>
+        <!-- / content  -->
     </div>
 <!-- / Body -->
-  </div>
+    </div>
 </template>
+
+<script>
+import * as firebase from "firebase";
+export default {
+  name: "Video",
+
+  data() {
+    return {
+      videos:[],
+      videoId:'',
+      userName:localStorage.getItem('login_user_name'),
+      comment:''
+    };
+  },
+  mounted(){
+    this.getVideos();
+  },
+  methods: {
+    getVideos() {
+          firebase.database().ref().child('videos/').once('value',(snapshot)=>{
+           var videos = snapshot.val();
+           console.log(videos);
+           var videos_list = [];
+           for(var x in videos){
+             var video_info =videos[x];   
+             videos_list.push(video_info);  
+           }
+           this.videos = videos_list;
+          })
+    },
+    
+  },
+};
+</script>

@@ -18,56 +18,33 @@
 
     <!--  content  -->
     <div class="content-video">
-            <div class="row">
+            <div class="row" v-for = "video in videos" :key="video">
                 <div class="col-8">
                   <div class="video">
-                        <!-- video  -->
                         <video width="400" controls>
-                            <source src="videos/video2.mp4" type="video/mp4">
+                            <source :src="video.video_link">
                             Your browser does not support HTML video.
                         </video>
                         <div class="video-header">
-                            <h1>Video Title</h1>
-                            <p class="details">Victor Ky | 120 views | 4 days ago </p>
-                            <p class="description">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected
-                                humour, or randomised words which don't look even slightly believable.There are many variations of passages of Lorem Ipsum
-                                available.</p>
+                            <h1>{{video.author_name}}</h1>
+                            <p class="details">{{video.createdAt}} </p>
                         </div>
                         <!-- / video  -->
                   </div>
-
                   <div class="commentSection">
                     <div class="write-comment">
-                      <img src="img/profile-pic.jpg">
-                      <input type="text" name="firstname" placeholder="Write a comment..">
+                      <input type="text" name="comment" v-model="comment" v-on:keyup.enter="videoId = video.id; savecomment()" placeholder="Write a comment..">
                     </div>
-                    <div class="commentField">
+                    <div class="commentField" v-for = "comment in video.comments" :key="comment">
                       <div class="comment">
-                        <a href="#" class="delete-icon-link"><i class="delete-icon fa fa-times" aria-hidden="true"></i></a>
-                        <img src="img/profile-pic.jpg">
-                        <h3>Iva Todorova</h3>
-                        <p class="commentBody">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit,Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit,Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                        </p>
-                        <p class="commentDate">4 sept</p>
-                      </div>
-        
-                      <div class="comment">
-                        <i class="delete-icon fa fa-times" aria-hidden="true"></i>
-                        <img src="img/profile-pic.jpg">
-                        <h3>Iva Todorova</h3>
-                        <p class="commentBody">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                        </p>
-                        <p class="commentDate">4 sept</p>
+                        <h3>User: {{comment.author_name}}</h3>
+                        <p>Comment: {{comment.comment}}</p>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <div class="col">
+                <!-- <div class="col">
                 <div class="autoplay">
                   <div class="video-card card mb-3" style="max-width: 540px;">
                     <div class="row no-gutters">
@@ -99,7 +76,7 @@
                     </div>
                   </div>
                 </div>
-                </div>
+                </div> -->
               </div>
         </div>
         <!-- / content  -->
@@ -107,3 +84,59 @@
 <!-- / Body -->
     </div>
 </template>
+
+<script>
+import * as firebase from "firebase";
+export default {
+  name: "Video",
+
+  data() {
+    return {
+      videos:[],
+      videoId:'',
+      userName:localStorage.getItem('login_user_name'),
+      comment:''
+    };
+  },
+  mounted(){
+    this.getVideos();
+  },
+  methods: {
+    getVideos() {
+          firebase.database().ref().child('videos/').once('value',(snapshot)=>{
+           var videos = snapshot.val();
+           console.log(videos);
+           var videos_list = [];
+           for(var x in videos){
+             var video_info =videos[x];   
+             videos_list.push(video_info);  
+           }
+           this.videos = videos_list;
+          })
+    },
+    savecomment(){
+      var postKey = this.videoId;
+         var updates={};
+          var commentData={
+                    comment: this.comment,
+                    author_name:this.userName,
+                    createdAt: new Date()
+          }
+          var Key=firebase.database().ref().push().key;
+          updates['videos/'+postKey+'comments/'+Key]=commentData;
+          // firebase.database().ref().update(updates).then(()=>{
+          // })
+
+          firebase.database().ref('videos/'+postKey).child('comments/').push(
+            {
+                    comment: this.comment,
+                    author_name:this.userName,
+                    time: new Date()
+          }
+          ).then(()=>{
+            location.reload();
+          })
+    }
+  },
+};
+</script>
