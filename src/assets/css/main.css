@@ -1,3 +1,7 @@
+btn.focus, .btn:focus {
+    outline: 0;
+    box-shadow: none;
+}
 /* --------------------------------------------------------------------------- Navigation */
 .navbar-brand {
     margin: 0;
@@ -61,6 +65,7 @@ padding: 4px 24px 4px 24px;
     margin-inline-end: auto;
     float: left;
     margin-right: 0;
+    border: none;
 }
 
 .search-submit  {
@@ -69,6 +74,9 @@ padding: 4px 24px 4px 24px;
 	border: none;
 	font: inherit;
     outline: inherit;
+    width: auto;
+    padding: 0;
+    margin: 0;
 }
 
 .search-submit i {
@@ -128,7 +136,12 @@ padding: 4px 24px 4px 24px;
 
 
 .create-dropdown .dropdown-menu .dropdown-submenu a{
-    font-size: 14px;
+    font-size: 13px;
+    padding: 0;
+}
+
+.create-dropdown .dropdown-menu .dropdown-submenu a img {
+    margin-right: 5px;
 }
 
 .create-dropdown .dropdown-menu .dropdown-submenu {
@@ -200,6 +213,11 @@ padding: 4px 24px 4px 24px;
     height: 30px;
     background-color: thistle;
 }
+
+.test:hover {
+border: none;
+}
+
 
 /*---------------------------------------------------------------------------- Latest 3 Videos */
 .latest-videos {
