@@ -5,18 +5,18 @@
       <!-- courses-nav -->
       <div class="courses-nav">
         <ul class="">
-          <li><a class="current-program " href="#home">Web Development</a></li>
-          <li><a href="#">User Experience</a></li>
-          <li><a href="#">Development environments</a></li>
-          <li><a href="#home">Web programming</a></li>
-          <li><a href="#">Web - Data</a></li>
-          <li><a href="#">Web - Frontend</a></li>
+          <li><a class="current-program " href="#home">Web development</a></li>
+          <li><a href="#">Computer Science</a></li>
+          <li><a href="#">Design, Technology and Business</a></li>
+          <li><a href="#home">Digital Concept Development</a></li>
+          <li><a href="#">Multimedia Design</a></li>
+          <li><a href="#">Software Development</a></li>
           <!-- <li><a class="active" href="#home">Web programming</a></li> -->
         </ul>
       </div>
       <!-- / courses-nav  -->
 
-      <!--  content  -->
+<!--  content  -->
       <div class="content-video">
         <div
           class="row"

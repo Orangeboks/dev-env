@@ -26,13 +26,21 @@
                 Your browser does not support HTML video.
               </video>
               <div class="video-header">
-                <h1>{{ video.author_name }}</h1>
-                <p class="details">{{ video.createdAt }}</p>
+                <h1>Video Title</h1>
+                <p class="details">
+                  {{ video.author_name }} | 120 views |{{ video.createdAt }}
+                </p>
+                <p class="description">
+                  There are many variations of passages of Lorem Ipsum
+                  available, but the majority have suffered alteration in some
+                  form, by injected humour.
+                </p>
               </div>
-              <!-- / video  -->
             </div>
+            <!-- / video  -->
             <div class="commentSection">
               <div class="write-comment">
+                <img src="../assets/img/profile-pic.jpg" />
                 <input
                   type="text"
                   name="comment"
@@ -50,52 +58,46 @@
                 :key="comment"
               >
                 <div class="comment">
-                  <h3>User: {{ comment.author_name }}</h3>
-                  <p>Comment: {{ comment.comment }}</p>
+                  <a href="#" class="delete-icon-link"
+                    ><i class="delete-icon fa fa-times" aria-hidden="true"></i
+                  ></a>
+                  <img src="../assets/img/profile-pic.jpg" />
+                  <h3>{{ comment.author_name }}</h3>
+                  <p class="commentBody">{{ comment.comment }}</p>
+                  <p class="commentDate">4 sept</p>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- <div class="col">
-                <div class="autoplay">
-                  <div class="video-card card mb-3" style="max-width: 540px;">
-                    <div class="row no-gutters">
-                      <div class="col-md-6">
-                        <img src="img/video-temp-02.png" class="card-img" alt="...">
-                      </div>
-                      <div class="col-md-6">
-                        <div class="card-body">
-                          <h2 class="card-title">Video Title</h2>
-                          <p class="card-text">Victor Ky</p>
-                          <p class="card-text">120 views | 4 days ago</p>
-                        </div>
-                      </div>
-                    </div>
+          <div class="col">
+            <div class="autoplay">
+              <div class="video-card card mb-3" style="max-width: 540px;">
+                <div class="row no-gutters">
+                  <div class="col-md-6">
+                    <img
+                      src="../assets/img/video-temp-02.png"
+                      class="card-img"
+                      alt="..."
+                    />
                   </div>
-
-                  <div class="video-card card mb-3" style="max-width: 540px;">
-                    <div class="row no-gutters">
-                      <div class="col-md-6">
-                        <img src="img/video-temp-02.png" class="card-img" alt="...">
-                      </div>
-                      <div class="col-md-6">
-                        <div class="card-body">
-                          <h2 class="card-title">Video Title</h2>
-                          <p class="card-text">Victor Ky</p>
-                          <p class="card-text">120 views | 4 days ago</p>
-                        </div>
-                      </div>
+                  <div class="col-md-6">
+                    <div class="card-body">
+                      <h2 class="card-title">Video Title</h2>
+                      <p class="card-text">Victor Ky</p>
+                      <p class="card-text">120 views | 4 days ago</p>
                     </div>
                   </div>
                 </div>
-                </div> -->
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <!-- / content  -->
     </div>
-    <!-- / Body -->
+    <!-- / content  -->
   </div>
+  <!-- / Body -->
 </template>
 
 <script>
