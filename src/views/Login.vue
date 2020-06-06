@@ -45,7 +45,7 @@ export default {
   },
   created() {
     if (localStorage.getItem("login_user_email")) {
-      this.$router.push("UploadVideo");
+      this.$router.push("/");
     }
   },
   methods: {
