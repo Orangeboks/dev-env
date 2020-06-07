@@ -19,42 +19,33 @@
 <!--  content  -->
       <div class="content-video">
         <div
-          class="row"
+          class=""
           v-for="video in videos"
           :key="video"
-          style="margin-top:10px"
         >
-          <div class="col-4">
-            <div class="video">
-              <video width="100">
-                <source :src="video.video_link" />
-                Your browser does not support HTML video.
-              </video>
-              <!-- / video  -->
+         <div class="videos-grid">
+          <a class="video-link" href="video-view.html">
+            <div class="card mb-4" style="max-width: 890px;">
+              <div class="row no-gutters">
+                <div class="video-holder col-md-4">
+                  <video >
+                  <source :src="video.video_link" />
+                  Your browser does not support HTML video.
+                  </video>
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">Video title</h5>
+                    <p class="video-details card-text"><small class="text-muted" id="video-details">Victor Ky | Web Development | Fronend </small></p>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <p class="card-text"><small class="text-muted">120 views | 4 days ago | 40:10 <i class="fa fa-forward" aria-hidden="true"></i>
+                    </small></p>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-          <!-- / Description  -->
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">Video title</h5>
-              <p class="video-details card-text">
-                <small class="text-muted" id="video-details"
-                  >Victor Ky | Web Development | Fronend
-                </small>
-              </p>
-              <p class="card-text">
-                This is a wider card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </p>
-              <p class="card-text">
-                <small class="text-muted"
-                  >120 views | 4 days ago | 40:10
-                  <i class="fa fa-forward" aria-hidden="true"></i>
-                </small>
-              </p>
-            </div>
-          </div>
+          </a>
+        </div>
         </div>
       </div>
       <!-- / content  -->

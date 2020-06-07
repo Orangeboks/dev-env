@@ -303,6 +303,7 @@ border: none;
 /*----------------------------------------------------------------------------------------------- Lessons-All page */
 .videos-grid .card {
     /* width: 900px; */
+    border: none;
 }
 
 .videos-grid .card-body {
@@ -313,6 +314,11 @@ border: none;
 .video-holder img {
     width: 180px;
     height: 100%;
+}
+
+.video-holder video {
+    width: 100%;
+    height: auto;
 }
 
 .videos-grid .card-title {
