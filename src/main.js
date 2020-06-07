@@ -5,7 +5,7 @@ import store from "./store";
 
 // Importing the main css file
 import "@/assets/css/main.css";
-import * as firebase from 'firebase';
+import * as firebase from "firebase";
 
 // Scripts
 var firebaseConfig = {
