@@ -18,15 +18,13 @@
 
       <!--  content  -->
       <div class="content-video">
-        <div class="row" v-for="video in videos" :key="video">
+        <div class="row">
           <div class="col-8">
             <div class="video">
-              <router-link :to="{ name: 'VideoDetailPage', params: { video: video }}">
               <video width="400" controls>
                 <source :src="video.video_link" />
                 Your browser does not support HTML video.
               </video>
-              </router-link>
               <div class="video-header">
                 <h1>Video Title</h1>
                 <p class="details">
@@ -105,33 +103,40 @@
 <script>
 import * as firebase from "firebase";
 export default {
-  name: "Video",
-
+  name: "Video_detail_page",
+  props: {
+        video:""
+    },
   data() {
     return {
-      videos: [],
       videoId: "",
       userName: localStorage.getItem("login_user_name"),
       comment: ""
     };
   },
   mounted() {
-    this.getVideos();
+    if(this.video){
+    localStorage.setItem("my_video_id",this.video.id);
+    }
+    else{
+      this.getVideo();
+    }
+
   },
   methods: {
-    getVideos() {
+    getVideo() {
       firebase
         .database()
         .ref()
         .child("videos/")
         .once("value", snapshot => {
           var videos = snapshot.val();
-          var videos_list = [];
           for (var x in videos) {
             var video_info = videos[x];
-            videos_list.push(video_info);
+            if(video_info.id == localStorage.getItem("my_video_id")){
+                 this.video = video_info;
+            }
           }
-          this.videos = videos_list;
         });
     },
     savecomment() {
@@ -139,7 +144,7 @@ export default {
       var updates = {};
       var commentData = {
         comment: this.comment,
-        author_name: this.userName,
+        author_name: 'root',
         createdAt: new Date()
       };
       var Key = firebase

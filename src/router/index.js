@@ -47,6 +47,16 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "video" */ "../views/Video.vue")
+  },
+  {
+    path: "/video-detail-page",
+    name: "VideoDetailPage",
+    props: true,
+    // route level code-splitting
+    // this generates a separate chunk (video.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(/* webpackChunkName: "video" */ "../views/Video_detail_page.vue")
   }
 ];
 

@@ -26,10 +26,12 @@
         >
           <div class="col-4">
             <div class="video">
+              <router-link :to="{ name: 'VideoDetailPage', params: { video: video }}">
               <video width="100">
                 <source :src="video.video_link" />
                 Your browser does not support HTML video.
               </video>
+              </router-link>
               <!-- / video  -->
             </div>
           </div>
@@ -39,7 +41,7 @@
               <h5 class="card-title">Video title</h5>
               <p class="video-details card-text">
                 <small class="text-muted" id="video-details"
-                  >Victor Ky | Web Development | Fronend
+                  >{{ video.author_name }} | Web Development | Fronend
                 </small>
               </p>
               <p class="card-text">
