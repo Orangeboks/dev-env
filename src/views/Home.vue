@@ -24,64 +24,30 @@
       </div>
       <!-- <div class="test"></div> -->
 
+
+ 
+
       <!-- Latest 3 videos -->
       <div class="latest-videos card-deck">
-        <div class="card">
-          <img
-            src="../assets/img/test-pic.png"
-            class="card-img-top"
-            alt="..."
-          />
+        
+        <div class="card" v-for="video in videos.slice(0, 4)"
+          :key="video">
+              <router-link :to="{ name: 'VideoDetailPage', params: { video: video }}">
+              <video width="100%">
+                <source :src="video.video_link" />
+                Your browser does not support HTML video.
+              </video>
+              </router-link>
           <div class="card-body">
             <h5 class="card-title">Video Title - Could be anything</h5>
-            <p class="card-text">Author Name</p>
+            <p class="card-text">{{ video.author_name }}</p>
             <p class="card-text">
-              <small class="text-muted">Program | 1 day ago | 200 views </small>
+              <small class="text-muted">Web development <br>1 day ago - 200 views </small>
             </p>
           </div>
         </div>
-        <div class="card">
-          <img
-            src="../assets/img/test-pic.png"
-            class="card-img-top"
-            alt="..."
-          />
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This card</p>
-            <p class="card-text">
-              <small class="text-muted">Program | 1 day ago | 200 views </small>
-            </p>
-          </div>
-        </div>
-        <div class="card">
-          <img
-            src="../assets/img/test-pic.png"
-            class="card-img-top"
-            alt="..."
-          />
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This card has</p>
-            <p class="card-text">
-              <small class="text-muted">Program | 1 day ago | 200 views </small>
-            </p>
-          </div>
-        </div>
-        <div class="card">
-          <img
-            src="../assets/img/test-pic.png"
-            class="card-img-top"
-            alt="..."
-          />
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider</p>
-            <p class="card-text">
-              <small class="text-muted">Last updated 3 mins ago</small>
-            </p>
-          </div>
-        </div>
+
+
       </div>
       <!-- Become a teacher -->
       <div class="become-teacher card text-center">
@@ -104,7 +70,7 @@
             alt="..."
           />
           <div class="card-body">
-            <h5 class="card-title">Petric Jensen</h5>
+            <h5 class="card-title">Patrick Jensen</h5>
             <p class="card-text">
               <small class="text-muted"
                 >3rd semester in Multimedia Design</small
@@ -125,7 +91,7 @@
             alt="..."
           />
           <div class="card-body">
-            <h5 class="card-title">Petric Jensen</h5>
+            <h5 class="card-title">Patrick Jensen</h5>
             <p class="card-text">
               <small class="text-muted"
                 >3rd semester in Multimedia Design</small
@@ -146,7 +112,7 @@
             alt="..."
           />
           <div class="card-body">
-            <h5 class="card-title">Petric Jensen</h5>
+            <h5 class="card-title">Patrick Jensen</h5>
             <p class="card-text">
               <small class="text-muted"
                 >3rd semester in Multimedia Design</small
@@ -166,9 +132,38 @@
 </template>
 
 <script>
-// @ is an alias to /src
-
+import * as firebase from "firebase";
 export default {
-  name: "Home"
+  name: "Home",
+
+  data() {
+    return {
+      videos: [],
+      videoId: "",
+      userName: localStorage.getItem("login_user_name"),
+      comment: ""
+    };
+  },
+  mounted() {
+    this.getVideos();
+  },
+  methods: {
+    getVideos() {
+      firebase
+        .database()
+        .ref()
+        .child("videos/")
+        .once("value", snapshot => {
+          var videos = snapshot.val();
+          console.log(videos);
+          var videos_list = [];
+          for (var x in videos) {
+            var video_info = videos[x];
+            videos_list.push(video_info);
+          }
+          this.videos = videos_list;
+        });
+    }
+  }
 };
 </script>

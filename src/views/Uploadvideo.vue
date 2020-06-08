@@ -72,7 +72,7 @@ export default {
               .ref()
               .update(updates)
               .then(() => {
-                this.$router.push("Video");
+                this.$router.push("all");
               });
           });
         }
