@@ -28,7 +28,7 @@
               <div class="video-header">
                 <h1>Video Title</h1>
                 <p class="details">
-                  {{ video.author_name }} | 120 views | {{ video.createdAt }}
+                  {{ video.author_name }} | {{ video.createdAt }}
                 </p>
                 <p class="description">
                   There are many variations of passages of Lorem Ipsum
@@ -85,7 +85,7 @@
                     <div class="card-body">
                       <h2 class="card-title">Video Title</h2>
                       <p class="card-text">Victor Ky</p>
-                      <p class="card-text">120 views | 4 days ago</p>
+                      <p class="card-text">4 days ago</p>
                     </div>
                   </div>
                 </div>

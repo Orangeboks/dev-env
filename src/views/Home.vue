@@ -39,10 +39,10 @@
               </video>
               </router-link>
           <div class="card-body">
-            <h5 class="card-title">Video Title - Could be anything</h5>
+            <h5 class="card-title">Video Title</h5>
             <p class="card-text">{{ video.author_name }}</p>
             <p class="card-text">
-              <small class="text-muted">Web development <br>1 day ago - 200 views </small>
+              <small class="text-muted">Web development <br>{{ video.createdAt }}</small>
             </p>
           </div>
         </div>

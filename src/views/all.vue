@@ -51,8 +51,8 @@
               </p>
               <p class="card-text">
                 <small class="text-muted"
-                  >120 views | {{ video.createdAt }}
-                  <i class="fa fa-forward" aria-hidden="true"></i>
+                  >{{ video.createdAt }}
+                
                 </small>
               </p>
             </div>
