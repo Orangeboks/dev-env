@@ -41,7 +41,7 @@
               <h5 class="card-title">Video title</h5>
               <p class="video-details card-text">
                 <small class="text-muted" id="video-details"
-                  >{{ video.author_name }} | Web Development | Fronend
+                  >{{ video.author_name }} | Web Development | Frontend
                 </small>
               </p>
               <p class="card-text">
@@ -51,7 +51,7 @@
               </p>
               <p class="card-text">
                 <small class="text-muted"
-                  >120 views | 4 days ago | 40:10
+                  >120 views | {{ video.createdAt }}
                   <i class="fa fa-forward" aria-hidden="true"></i>
                 </small>
               </p>
