@@ -62,7 +62,8 @@ export default {
               .push().key;
             var videoData = {
               author_name: this.loginUser,
-              createdAt: new Date(),
+              // createdAt: new Date(),
+              createdAt: new Date().toISOString().slice(0,10).replace('T',''),
               video_link: url,
               id: postKey
             };

@@ -28,7 +28,7 @@
               <div class="video-header">
                 <h1>Video Title</h1>
                 <p class="details">
-                  {{ video.author_name }} | 120 views |{{ video.createdAt }}
+                  {{ video.author_name }} | 120 views | {{ video.createdAt }}
                 </p>
                 <p class="description">
                   There are many variations of passages of Lorem Ipsum

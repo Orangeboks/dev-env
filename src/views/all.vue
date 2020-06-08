@@ -24,7 +24,7 @@
           :key="video"
         >
          <div class="videos-grid">
-          <a class="video-link" href="video-view.html">
+          <a class="video-link" href="/video">
             <div class="card mb-4" style="max-width: 890px;">
               <div class="row no-gutters">
                 <div class="video-holder col-md-4">
@@ -36,10 +36,9 @@
                 <div class="col-md-8">
                   <div class="card-body">
                     <h5 class="card-title">Video title</h5>
-                    <p class="video-details card-text"><small class="text-muted" id="video-details">Victor Ky | Web Development | Fronend </small></p>
+                    <p class="video-details card-text"><small class="text-muted" id="video-details">{{ video.author_name }} | Web Development | Fronend </small></p>
                     <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">120 views | 4 days ago | 40:10 <i class="fa fa-forward" aria-hidden="true"></i>
-                    </small></p>
+                    <p class="card-text"><small class="text-muted">120 views | {{ video.createdAt }} </small></p>
                   </div>
                 </div>
               </div>
