@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Upload.vue matches snapshot 1`] = `
+<div class="container">
+  <h3>Upload Video:</h3> <input type="file" accept="video/*"> <span>
+    Progress: 0%
+    <progress id="progress" max="100" value="0"></progress></span>
+  <!---->
+</div>
+`;

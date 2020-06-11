@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login.vue matches snapshot 1`] = `
+<div>
+  <form>
+    <div class="container"><input type="email" placeholder="Enter email" name="email" required="required"> <input type="password" placeholder="Enter Password" name="psw" required="required"> <button type="submit">Login</button></div>
+  </form>
+</div>
+`;

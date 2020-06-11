@@ -35,7 +35,7 @@
 							</div>
 						</div>
 						<!-- / video  -->
-						<div class="commentSection" v-if="video">
+						<div class="commentSection">
 							<div class="write-comment">
 								<img src="../assets/img/profile-pic.jpg" />
 								<input
