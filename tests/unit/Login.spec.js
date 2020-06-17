@@ -10,20 +10,20 @@ jest.mock('firebase', () => {
 				push: jest.fn(() => ({
 					set,
 				})),
-				child: jest.fn(() => ({
-					once: jest.fn((key, cb) => {
-						const value = {};
-						value.val = jest.fn(() => [
-							{
-								'1': {
-									email: 'test@test.com',
-									password: '1234',
-								},
-							},
-						]);
-						cb(value);
-					}),
-				})),
+				 child: jest.fn(() => ({
+				 	once: jest.fn((key, cb) => {
+				 		const value = {};
+				 		value.val = jest.fn(() => [
+				 			{
+				 				'1': {
+				 					email: 'test@test.com',
+				 					password: '1234',
+				 				},
+				 			},
+				 		]);
+				 		cb(value);
+				 	}),
+				 })),
 			})),
 		})),
 	};
@@ -40,19 +40,19 @@ describe('Login.vue', () => {
 		expect(wrapper.html()).toMatchSnapshot();
 	});
 
-	it('login method success', () => {
-		wrapper.setData({
-			email: 'test@test.com',
-			password: '1234',
-		});
-		wrapper.vm.login();
-	});
+	 it('login method success', () => {
+	 	wrapper.setData({
+	 		email: 'test@test.com',
+	 		password: '1234',
+	 	});
+	 	wrapper.vm.login();
+	 });
 
-	it('login method failure', () => {
-		wrapper.setData({
-			email: null,
-			password: '1234',
-		});
-		wrapper.vm.login();
-	});
+	 it('login method failure', () => {
+	 	wrapper.setData({
+	 		email: null,
+	 		password: '1234',
+	 	});
+	 	wrapper.vm.login();
+	 });
 });

@@ -16,20 +16,20 @@ jest.mock('firebase', () => {
 				push: jest.fn(() => ({
 					set,
 				})),
-				child: jest.fn(() => ({
-					once: jest.fn((key, cb) => {
-						const value = {};
-						value.val = jest.fn(() => [
-							{
-								'1': {
-									email: 'test@test.com',
-									password: '1234',
-								},
-							},
-						]);
-						cb(value);
-					}),
-				})),
+				// child: jest.fn(() => ({
+				// 	once: jest.fn((key, cb) => {
+				// 		const value = {};
+				// 		value.val = jest.fn(() => [
+				// 			{
+				// 				'1': {
+				// 					email: 'test@test.com',
+				// 					password: '1234',
+				// 				},
+				// 			},
+				// 		]);
+				// 		cb(value);
+				// 	}),
+				// })),
 			})),
 		})),
 		storage: jest.fn(() => ({
